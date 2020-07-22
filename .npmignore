@@ -1,0 +1,12 @@
+.circleci/
+src/
+test/
+.editorconfig
+.eslintrc.cjs
+.gitarrtibutes
+gulpfile.ts
+jest.config.js
+renovate.json
+sideci.yml
+tsconfig.eslint.json
+tsconfig.json

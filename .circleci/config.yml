@@ -1,0 +1,44 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@3.0.1
+
+jobs:
+  lint:
+    executor: node/default
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run lint
+  release:
+    executor: node/default
+    steps:
+      - checkout
+      - run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
+      - run: npm install
+      - run: npm run build
+      - run: npm run release
+
+workflows:
+  build-n-release:
+    jobs:
+      - node/test:
+          override-ci-command: "npm install"
+          matrix:
+            parameters:
+              version:
+                - 10.21.0
+                - 12.18.2
+                - 14.5.0
+      - lint
+      - release:
+          filters:
+            tags:
+              only: /^v.*/
+            # By default, release runs on push to any branches.
+            # To avoid running release, it is required to ignore all branches here.
+            branches:
+              ignore: /.*/
+          requires:
+            - node/test
+            - lint

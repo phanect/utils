@@ -2,7 +2,7 @@ import { dest, parallel } from "gulp";
 import * as ts from "gulp-typescript";
 import * as rename from "gulp-rename";
 
-exports.build = parallel(
+export const build = parallel(
   () => {
     const tsProject = ts.createProject("tsconfig.json", { module: "ES2015" });
 

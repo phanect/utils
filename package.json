@@ -20,6 +20,11 @@
     "release": "npm publish --access public --non-interactive",
     "test": "jest --verbose"
   },
+  "dependencies": {
+    "@types/lodash-es": "^4.17.3",
+    "klona": "^2.0.0",
+    "lodash-es": "^4.17.15"
+  },
   "devDependencies": {
     "@phanect/eslint-plugin": "latest",
     "@types/gulp": "^4.0.6",

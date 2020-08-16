@@ -4,7 +4,6 @@ const { join } = require("path");
 
 module.exports = {
   root: true,
-  extends: "plugin:@phanect/ts",
 
   env: {
     browser: true,
@@ -12,7 +11,25 @@ module.exports = {
   },
   parserOptions: {
     sourceType: "module",
-    project: join(__dirname, "./tsconfig.eslint.json"),
   },
   plugins: [ "@phanect" ],
+  overrides: [
+    {
+      files: [ "*.js", "**/*.js", "*.cjs", "**/*.cjs", "*.mjs", "**/*.mjs" ],
+      extends: "plugin:@phanect/js",
+    },
+    {
+      files: [ "*.cjs", "**/*.cjs" ],
+      parserOptions: {
+        sourceType: "script",
+      },
+    },
+    {
+      files: [ "*.ts", "**/*.ts" ],
+      extends: "plugin:@phanect/ts",
+      parserOptions: {
+        project: join(__dirname, "./tsconfig.eslint.json"),
+      },
+    },
+  ],
 };

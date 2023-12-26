@@ -35,4 +35,4 @@ test("sleep", async () => {
 
   expect(+endAt - +startAt).toBeGreaterThan(4900);
   expect(+endAt - +startAt).toBeLessThan(5100);
-});
+}, 10000);

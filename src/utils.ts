@@ -1,6 +1,3 @@
-import { klona } from "klona/full";
-import { mergeWith } from "lodash-es";
-
 /**
  * Remove duplicate values from array.
  *
@@ -10,16 +7,6 @@ import { mergeWith } from "lodash-es";
  */
 export function deduplicate<T>(arr: T[]): T[] {
   return arr.filter((el, i) => arr.indexOf(el) === i);
-}
-
-export function deepMerge(obj1: object, obj2: object): object {
-  const _obj1 = klona(obj1);
-
-  return mergeWith(_obj1, obj2, (a, b) => {
-    if (Array.isArray(a) && Array.isArray(b)) {
-      return a.concat(b);
-    }
-  });
 }
 
 /**

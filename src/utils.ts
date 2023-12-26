@@ -1,6 +1,5 @@
 /**
  * Remove duplicate values from array.
- *
  * @param {T[]} arr - An array to deduplicate.
  * @returns {T[]} - The deduplicated array.
  * @template T
@@ -11,7 +10,6 @@ export function deduplicate<T>(arr: T[]): T[] {
 
 /**
  * Sleep for the specified time.
- *
  * @param {number} ms - The time to wait (in milliseconds).
  * @returns {Promise<void>} A promise object.
  */

@@ -1,28 +1,26 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "declaration": false,
-    "moduleResolution": "node",
+    "declaration": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "lib": [
       "dom",
       "esnext"
     ],
     "newLine": "lf",
-    "target": "es2017",
-    "outDir": "./dist",
+    "target": "esnext",
     "preserveConstEnums": true,
     "removeComments": true,
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
     "strict": true
   },
   "include": [
-    "src/*.ts"
+    "**/*.ts"
   ],
   "exclude": [
     "dist",
-    "node_modules",
-    "**/*.test.ts"
+    "node_modules"
   ]
 }

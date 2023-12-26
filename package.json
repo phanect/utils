@@ -23,7 +23,6 @@
     "eslint-config-phanective": "latest",
     "jest": "^26.1.0",
     "ts-jest": "^26.1.3",
-    "ts-node": "^8.10.2",
     "typescript": "^3.9.7",
     "vite": "^5.0.10",
     "vite-plugin-dts": "^3.7.0"

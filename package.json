@@ -17,12 +17,12 @@
     "test": "jest --verbose"
   },
   "devDependencies": {
-    "@phanect/eslint-plugin": "latest",
     "@types/gulp": "^4.0.6",
     "@types/gulp-rename": "0.0.33",
     "@types/jest": "^26.0.5",
     "@types/node": "^14.0.24",
-    "eslint": "latest",
+    "eslint": "^8.56.0",
+    "eslint-config-phanective": "latest",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.3.0",
     "gulp-rename": "^2.0.0",

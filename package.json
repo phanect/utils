@@ -5,10 +5,17 @@
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "MIT",
   "type": "module",
-  "main": "dist/utils.cjs",
+  "main": "./dist/utils.cjs",
+  "module": "./dist/utils.js",
+  "types": "./dist/types/utils.d.ts",
   "exports": {
-    "import": "./dist/utils.mjs",
-    "require": "./dist/utils.cjs"
+    ".": {
+      "import": {
+        "default": "./dist/utils.mjs",
+        "types": "./dist/types/utils.d.ts"
+      },
+      "require": "./dist/utils.cjs"
+    }
   },
   "scripts": {
     "build": "vite build",

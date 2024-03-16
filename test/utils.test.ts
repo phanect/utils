@@ -1,4 +1,4 @@
-import { deduplicate, deepMerge, sleep } from "../src/utils";
+import { deduplicate, sleep } from "../src/utils";
 
 test("deduplicate", () => {
   const deduplicated = deduplicate([
@@ -28,59 +28,6 @@ test("deduplicate", () => {
   ]);
 });
 
-test("deepMerge", () => {
-  const result = deepMerge({
-    foo: [ "a", "b" ],
-    bar: {
-      boo: [ "f", "g" ],
-    },
-  },
-  {
-    foo: [ "c", "d", "e" ],
-    bar: {
-      boo: [ "h", "i", "j" ],
-    },
-  });
-
-  expect(result).toEqual({
-    foo: [ "a", "b", "c", "d", "e" ],
-    bar: {
-      boo: [ "f", "g", "h", "i", "j" ],
-    },
-  });
-});
-
-test("deepMerge doesn't modify the original object", () => {
-  const config1 = {
-    foo: [ "a", "b" ],
-    bar: {
-      boo: [ "f", "g" ],
-    },
-  };
-  const config2 = {
-    foo: [ "c", "d", "e" ],
-    bar: {
-      boo: [ "h", "i", "j" ],
-    },
-  };
-
-  deepMerge(config1, config2);
-
-  expect(config1).toEqual({
-    foo: [ "a", "b" ],
-    bar: {
-      boo: [ "f", "g" ],
-    },
-  });
-
-  expect(config2).toEqual({
-    foo: [ "c", "d", "e" ],
-    bar: {
-      boo: [ "h", "i", "j" ],
-    },
-  });
-});
-
 test("sleep", async () => {
   const startAt = new Date();
   await sleep(5000);
@@ -88,4 +35,4 @@ test("sleep", async () => {
 
   expect(+endAt - +startAt).toBeGreaterThan(4900);
   expect(+endAt - +startAt).toBeLessThan(5100);
-});
+}, 10000);

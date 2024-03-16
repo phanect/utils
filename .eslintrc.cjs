@@ -2,33 +2,34 @@
 
 const { join } = require("path");
 
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
+  extends: "phanective/node",
 
   env: {
     browser: true,
-    node: true,
+    node: false, // This project should work on both browser and Node.js i.e. Universal JS
   },
   parserOptions: {
-    sourceType: "module",
+    project: join(__dirname, "tsconfig.json"),
   },
-  plugins: [ "@phanect" ],
+  ignorePatterns: [ "dist/*" ],
   overrides: [
     {
-      files: [ "*.js", "**/*.js", "*.cjs", "**/*.cjs", "*.mjs", "**/*.mjs" ],
-      extends: "plugin:@phanect/js",
-    },
-    {
-      files: [ "*.cjs", "**/*.cjs" ],
+      files: [ "*.js" ],
       parserOptions: {
-        sourceType: "script",
+        sourceType: "module",
       },
     },
     {
-      files: [ "*.ts", "**/*.ts" ],
-      extends: "plugin:@phanect/ts",
-      parserOptions: {
-        project: join(__dirname, "./tsconfig.eslint.json"),
+      files: [ "test/**/*.test.*" ],
+      extends: "phanective/jest",
+    },
+    {
+      files: [ "**/*.config.{js,mjs,cjs,ts}" ],
+      rules: {
+        "node/no-unpublished-import": "off",
       },
     },
   ],

@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "gulp build",
-    "lint": "eslint --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx .",
+    "lint": "tsc --noEmit && eslint --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx .",
     "release": "npm publish --access public --non-interactive",
     "test": "jest --verbose"
   },

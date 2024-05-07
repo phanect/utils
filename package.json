@@ -11,7 +11,7 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/utils.mjs",
+        "default": "./dist/utils.js",
         "types": "./dist/types/utils.d.ts"
       },
       "require": "./dist/utils.cjs"

@@ -37,6 +37,9 @@ node_modules/
 package-lock.json
 yarn.lock
 
+# tarballs packed by `npm pack`
+*.tgz
+
 # Others
 .node_repl_history
 .eslintcache

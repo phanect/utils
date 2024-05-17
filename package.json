@@ -1,6 +1,6 @@
 {
   "name": "@phanect/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "@phanect's personal utility library for JavaScript & TypeScript",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "MIT",
@@ -11,7 +11,7 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/utils.mjs",
+        "default": "./dist/utils.js",
         "types": "./dist/types/utils.d.ts"
       },
       "require": "./dist/utils.cjs"

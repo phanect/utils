@@ -17,7 +17,7 @@ export const sleep = async (ms: number): Promise<void> =>
   });
 
 /**
- * Sort array of the objects by the same order.
+ * Sort array of the objects by the keys in the alphabetical order.
  * @param {object[]} objects - Aarray of objects.
  * @returns {object[]} - Sorted array of the objects.
  */

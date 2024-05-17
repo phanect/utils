@@ -21,7 +21,10 @@ export const sleep = async (ms: number): Promise<void> =>
  * @param {object[]} objects - Aarray of objects.
  * @returns {object[]} - Sorted array of the objects.
  */
-export const sortObjects = <T extends { [key: string]: unknown }>(objects: T[]): T[] => objects.sort((obj1, obj2) => {
+// { [key: string]: unknown } is not acceptable and we must use any here.
+// See: https://github.com/microsoft/TypeScript/wiki/Breaking-Changes/83af27fca396d172b4d895d480b10c3bacf89112#-k-string-unknown--is-no-longer-a-wildcard-assignment-target
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const sortObjects = <T extends { [key: string]: any }>(objects: T[]): T[] => objects.sort((obj1, obj2) => {
   type Comparable = string|number|boolean|Date;
 
   const keys = Object.keys(obj1).sort();

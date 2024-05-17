@@ -1,4 +1,4 @@
-import { deduplicate, sleep } from "../src/utils";
+import { deduplicate, sleep, sortObjects } from "../src/utils";
 
 test("deduplicate", () => {
   const deduplicated = deduplicate([
@@ -35,4 +35,22 @@ test("sleep", async () => {
 
   expect(+endAt - +startAt).toBeGreaterThan(4900);
   expect(+endAt - +startAt).toBeLessThan(5100);
+}, 10000);
+
+test("sortObjects", async () => {
+  const result = sortObjects([
+    { a: 5 },
+    { a: 1 },
+    { a: 4 },
+    { a: 3 },
+    { a: 2 },
+  ]);
+
+  expect(result).toStrictEqual([
+    { a: 1 },
+    { a: 2 },
+    { a: 3 },
+    { a: 4 },
+    { a: 5 },
+  ]);
 }, 10000);

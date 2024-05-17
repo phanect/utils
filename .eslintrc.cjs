@@ -23,10 +23,6 @@ module.exports = {
       },
     },
     {
-      files: [ "test/**/*.test.*" ],
-      extends: "phanective/jest",
-    },
-    {
       files: [ "**/*.config.{js,mjs,cjs,ts}" ],
       rules: {
         "node/no-unpublished-import": "off",

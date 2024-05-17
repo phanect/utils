@@ -1,3 +1,4 @@
+import { expect, test } from "vitest";
 import { deduplicate, sleep, sortObjects } from "../src/utils";
 
 test("deduplicate", () => {

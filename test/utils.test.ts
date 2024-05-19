@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { deduplicate, sleep, sortObjects } from "../src/utils";
+import { deduplicate, deindent, sleep, sortObjects } from "../src/utils";
 
 test("deduplicate", () => {
   const deduplicated = deduplicate([
@@ -28,6 +28,21 @@ test("deduplicate", () => {
     "www.example.io",
   ]);
 });
+
+test("deindent", async () => {
+  const before = `
+  {
+    "test": "JS object"
+  }
+`;
+  const expectedAfter = `{
+"test": "JS object"
+}`;
+
+  const actualAfter = deindent(before);
+
+  expect(actualAfter).toStrictEqual(expectedAfter);
+}, 10000);
 
 test("sleep", async () => {
   const startAt = new Date();

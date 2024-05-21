@@ -1,24 +1,29 @@
 {
   "name": "@phanect/utils",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "@phanect's personal utility library for JavaScript & TypeScript",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/utils.cjs",
-  "module": "./dist/utils.js",
-  "types": "./dist/types/utils.d.ts",
+  "main": "./dist/universal.cjs",
+  "module": "./dist/universal.mjs",
+  "types": "./dist/universal.d.ts",
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/utils.js",
-        "types": "./dist/types/utils.d.ts"
+        "default": "./dist/universal.mjs",
+        "types": "./dist/universal.d.ts"
       },
-      "require": "./dist/utils.cjs"
+      "require": "./dist/universal.cjs"
+    },
+    "./nodejs": {
+      "import": "./dist/nodejs.mjs",
+      "require": "./dist/nodejs.cjs",
+      "types": "./dist/nodejs.d.ts"
     }
   },
   "scripts": {
-    "build": "vite build",
+    "build": "unbuild",
     "lint": "tsc --noEmit && eslint --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx .",
     "release": "npm publish --access public --non-interactive",
     "test": "vitest run"
@@ -28,8 +33,7 @@
     "eslint": "^8.56.0",
     "eslint-config-phanective": "latest",
     "typescript": "^5.3.3",
-    "vite": "^5.0.10",
-    "vite-plugin-dts": "^3.7.0",
+    "unbuild": "^2.0.0",
     "vitest": "^1.6.0"
   },
   "engines": {

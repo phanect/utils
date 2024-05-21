@@ -4,10 +4,12 @@
     "declaration": true,
     "module": "esnext",
     "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "lib": [
       "dom",
       "esnext"
     ],
+    "noEmit": true,
     "newLine": "lf",
     "target": "esnext",
     "preserveConstEnums": true,

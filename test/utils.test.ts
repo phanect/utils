@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { deduplicate, deindent, sleep, sortObjects } from "../src/utils";
+import { deduplicate, deindent, sleep, sortObjects } from "../src/utils.ts";
 
 test("deduplicate", () => {
   const deduplicated = deduplicate([

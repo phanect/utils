@@ -4,11 +4,6 @@ on:
   pull_request:
     branches:
       - main
-    types:
-      - opened
-      - edited
-      - reopened
-      - synchronize
   push:
     branches:
       - main
@@ -24,7 +19,7 @@ jobs:
         node-version:
           - 18
           - 20
-          - 21
+          - 22
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}

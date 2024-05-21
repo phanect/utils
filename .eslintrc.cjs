@@ -5,12 +5,8 @@ const { join } = require("path");
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: "phanective/node",
+  extends: "phanective/plain",
 
-  env: {
-    browser: true,
-    node: false, // This project should work on both browser and Node.js i.e. Universal JS
-  },
   parserOptions: {
     project: join(__dirname, "tsconfig.json"),
   },
@@ -23,9 +19,35 @@ module.exports = {
       },
     },
     {
+      files: [ "*.cjs" ],
+      env: {
+        commonjs: true,
+        node: true,
+      },
+      parserOptions: {
+        sourceType: "script",
+      },
+    },
+    {
       files: [ "**/*.config.{js,mjs,cjs,ts}" ],
       rules: {
         "node/no-unpublished-import": "off",
+      },
+    },
+    {
+      files: [ "src/universal/**/*.{js,mjs,cjs,ts,jsx,tsx}" ],
+      // These libraries should work on both browser and Node.js i.e. Universal JS
+      env: {
+        browser: false,
+        node: false,
+      },
+    },
+    {
+      files: [ "src/nodejs/**/*.{js,mjs,cjs,ts,jsx,tsx}" ],
+      extends: "phanective/node",
+      env: {
+        browser: false,
+        node: true,
       },
     },
   ],

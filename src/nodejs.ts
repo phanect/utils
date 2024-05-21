@@ -1,1 +1,1 @@
-// export { foo } from "./nodejs/foo.ts";
+export { cmd } from "./nodejs/cmd.ts";

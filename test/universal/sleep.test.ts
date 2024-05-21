@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { sleep } from "../../src/utils.ts";
+import { sleep } from "../../src/universal.ts";
 
 test("sleep", async () => {
   const startAt = new Date();

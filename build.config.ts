@@ -2,7 +2,8 @@ import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
   entries: [
-    "./src/utils.ts",
+    "./src/universal.ts",
+    "./src/nodejs.ts",
   ],
   declaration: true,
   rollup: {

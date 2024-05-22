@@ -110,7 +110,7 @@ export const cmd = async (commands: CommandString | CommandString[], options?: C
           });
         }
 
-        const child = execCallback(command, options, (err, stdout, stderr) => {
+        const child = execCallback(command, { ...options, stdio: "inherit" }, (err, stdout, stderr) => {
           if (err) {
             reject(err);
             return;

@@ -44,8 +44,7 @@ export const cmd = async (commands: CommandString | CommandString[], options?: C
 
   const log = (queued: Queued): void => {
     const logger = queued.target === "stdout" ? console.info : console.error;
-    const prefix = (queued.isCommand ? ((0 < queued.processId ? "\n" : "") + ">>> ") : "")
-      + `[${ queued.processId }]`;
+    const prefix = queued.isCommand ? ((0 < queued.processId ? "\n" : "") + ">>> ") : "";
     const trailingLineBreaks = queued.isCommand ? "\n\n" : "\n";
 
     if (typeof queued.text === "string" || !!queued.text?.toString) {

@@ -23,7 +23,9 @@
     }
   },
   "scripts": {
-    "build": "rollup --config",
+    "build": "npm run build:lib && npm run build:dts",
+    "build:lib": "rollup --config",
+    "build:dts": "dts-bundle-generator --config=dts.config.js",
     "lint": "tsc --noEmit && eslint --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx .",
     "release": "npm publish --access public --non-interactive",
     "test": "vitest run"
@@ -31,6 +33,7 @@
   "devDependencies": {
     "@rollup/plugin-swc": "^0.3.0",
     "@types/node": "^20.10.5",
+    "dts-bundle-generator": "^9.5.1",
     "eslint": "^8.56.0",
     "eslint-config-phanective": "latest",
     "rollup-plugin-node-externals": "^7.1.2",

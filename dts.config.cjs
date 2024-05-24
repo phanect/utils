@@ -11,6 +11,9 @@ const outputOptions = {
 
 /** @type { import("dts-bundle-generator/config-schema").BundlerConfig } */
 const config = {
+  compilationOptions: {
+    preferredConfigPath: join(__dirname, "tsconfig.json"),
+  },
   entries: [
     {
       filePath: join(__dirname, "src/universal.ts"),

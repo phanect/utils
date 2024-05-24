@@ -17,7 +17,6 @@
     "preserveConstEnums": true,
     "removeComments": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
     "strict": true
   },
   "include": [

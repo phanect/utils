@@ -25,7 +25,7 @@
   "scripts": {
     "build": "npm run build:lib && npm run build:dts",
     "build:lib": "rollup --config",
-    "build:dts": "dts-bundle-generator --config=dts.config.js",
+    "build:dts": "dts-bundle-generator --config=dts.config.cjs",
     "lint": "tsc --noEmit && eslint --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx .",
     "release": "npm publish --access public --non-interactive",
     "test": "vitest run"

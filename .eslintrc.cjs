@@ -30,6 +30,9 @@ module.exports = {
     },
     {
       files: [ "**/*.config.{js,mjs,cjs,ts}" ],
+      env: {
+        node: true,
+      },
       rules: {
         "node/no-unpublished-import": "off",
       },

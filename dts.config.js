@@ -8,6 +8,7 @@ if (!Array.isArray(rollupConfig.output)) {
   throw new Error("Expect `output` to be an object.");
 }
 
+/** @type { import("dts-bundle-generator/config-schema").BundlerConfig }*/
 const config = {
   entries: Object.entries(rollupConfig.input).map(([ name, entryPath ]) => ({
     filePath: entryPath.startsWith("/")

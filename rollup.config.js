@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { nodeExternals } from "rollup-plugin-node-externals";
 
+/** @type {{ dependencies?: object, devDependencies?: object }} */
 const { dependencies, devDependencies } = JSON.parse(
   (await readFile(
     join(import.meta.dirname, "package.json"),
@@ -10,6 +11,7 @@ const { dependencies, devDependencies } = JSON.parse(
   ))
 );
 
+/** @type { import("rollup").RollupOptions } */
 const config = {
   input: {
     universal: "src/universal.ts",

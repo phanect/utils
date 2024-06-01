@@ -1,7 +1,7 @@
 /**
  * Sort array of the objects by the keys in the alphabetical order.
- * @param {object[]} objects - Aarray of objects.
- * @returns {object[]} - Sorted array of the objects.
+ * @param objects - Aarray of objects.
+ * @returns - Sorted array of the objects.
  */
 // { [key: string]: unknown } is not acceptable and we must use any here.
 // See: https://github.com/microsoft/TypeScript/wiki/Breaking-Changes/83af27fca396d172b4d895d480b10c3bacf89112#-k-string-unknown--is-no-longer-a-wildcard-assignment-target

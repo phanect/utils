@@ -112,6 +112,11 @@ export const cmd = async (commands: CommandString | CommandString[], options?: C
           });
         }
 
+        // TODO use "error" event to print error, and "close" to resolve instead of callback.
+        // https://nodejs.org/docs/latest-v20.x/api/child_process.html#event-error
+        // https://nodejs.org/docs/latest-v20.x/api/child_process.html#event-close
+
+        // eslint-disable-next-line promise/prefer-await-to-callbacks
         const child = execCallback(command, options, (err, stdout, stderr) => {
           if (err) {
             reject(err);

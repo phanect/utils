@@ -1,3 +1,4 @@
+import { Buffer } from "node:buffer";
 import { exec as execCallback } from "node:child_process";
 
 type CmdParams = Parameters<typeof execCallback>;

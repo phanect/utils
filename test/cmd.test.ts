@@ -1,8 +1,8 @@
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, test, afterEach, vi } from "vitest";
-import { deindent } from "../src/universal.ts";
 import { cmd } from "../src/nodejs.ts";
+import { deindent } from "../src/universal.ts";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 

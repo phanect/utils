@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "declaration": true,
+    "declaration": false,
     "module": "esnext",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -9,17 +9,21 @@
       "dom",
       "esnext"
     ],
+    "allowJs": true,
+    "checkJs": true,
     "noEmit": true,
     "newLine": "lf",
     "target": "esnext",
     "preserveConstEnums": true,
     "removeComments": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
     "strict": true
   },
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.cjs",
   ],
   "exclude": [
     "dist",

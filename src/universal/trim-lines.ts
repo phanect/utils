@@ -1,7 +1,7 @@
 /**
- * Strip indents from multiline string. Userful for normalizing multiline strings written with template literals (strings declared with backquotes `\`\``)
+ * Strip leading and trailing spaces from (i.e. trim) each lines of multiline string. Useful for normalizing multiline strings written with template literals (strings declared with backquotes `\`\``)
  * @param str - Multiline string to strip indents.
- * @returns Multiline string which indents are stripped.
+ * @returns Multiline string which each lines are trimmed.
  */
 export const trimLines = (str: string): string =>
   str

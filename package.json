@@ -24,14 +24,15 @@
   },
   "scripts": {
     "build": "unbuild",
-    "lint": "tsc --noEmit && eslint --ext=.js,.cjs,.mjs,.jsx,.ts,.tsx .",
+    "lint": "tsc --noEmit && biome check",
+    "fix": "biome check --write",
     "release": "npm publish --access public --non-interactive",
     "test": "vitest run"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@phanect/configs": "latest",
     "@types/node": "^22.1.0",
-    "eslint": "^8.56.0",
-    "eslint-config-phanective": "latest",
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
     "vitest": "^2.0.2"

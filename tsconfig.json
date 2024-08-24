@@ -1,25 +1,11 @@
 {
-  "compilerOptions": {
-    "alwaysStrict": true,
-    "declaration": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "lib": [
-      "dom",
-      "esnext"
-    ],
-    "noEmit": true,
-    "newLine": "lf",
-    "target": "esnext",
-    "preserveConstEnums": true,
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true
-  },
+  "extends": [
+    "@phanect/configs/tsconfig/frontend",
+    "@phanect/configs/tsconfig/addons/npm"
+  ],
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    "**/*.js"
   ],
   "exclude": [
     "dist",

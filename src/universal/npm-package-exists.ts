@@ -1,4 +1,4 @@
-import { deindent } from "./deindent.ts";
+import { trimLines } from "./trim-lines.ts";
 
 export const npmPackageExists = async (pkgName: string): Promise<boolean> => {
   const res = await fetch(`https://registry.npmjs.com/${pkgName}`);
@@ -9,7 +9,7 @@ export const npmPackageExists = async (pkgName: string): Promise<boolean> => {
     return false;
   } else if (400 <= res.status && res.status < 500) {
     throw new Error(
-      deindent(`
+      trimLines(`
       [ERROR] Package name "${pkgName}" may be invalid.
       Could not check if npm package  exists.
 
@@ -18,7 +18,7 @@ export const npmPackageExists = async (pkgName: string): Promise<boolean> => {
     );
   } else if (500 <= res.status) {
     throw new Error(
-      deindent(`
+      trimLines(`
       [ERROR] registry.npmjs.com may be down. See: https://status.npmjs.org
       Could not check if npm package "${pkgName}" exists.
       HTTP ${res.status} ${res.statusText} https://registry.npmjs.com/${pkgName}
@@ -26,7 +26,7 @@ export const npmPackageExists = async (pkgName: string): Promise<boolean> => {
     );
   } else {
     throw new Error(
-      deindent(`
+      trimLines(`
       [ERROR] Unexpected HTTP Status Code ${res.status} ${res.statusText} while checking https://registry.npmjs.com/${pkgName}
     `),
     );

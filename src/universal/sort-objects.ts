@@ -17,13 +17,13 @@ export  const sortObjects = <T extends { [key: string]: any }>(objects: T[]): T[
       !(key in obj1 && key in obj2) ||
       obj1[key] === obj2[key]
     ) {
-      continue;
+      // continue
     } else if ((obj1[key] as Comparable) < (obj2[key] as Comparable)) { // if the values are not comparable, false is returned.
       return -1;
     } else if ((obj1[key] as Comparable) > (obj2[key] as Comparable)) { // if the values are not comparable, false is returned.
       return 1;
     } else {
-      continue;
+      // continue
     }
   }
 

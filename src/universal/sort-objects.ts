@@ -14,7 +14,7 @@ export  const sortObjects = <T extends { [key: string]: any }>(objects: T[]): T[
 
   for (const key of keys) {
     if (
-      (!(key in obj1) || !(key in obj2)) ||
+      !(key in obj1 && key in obj2) ||
       obj1[key] === obj2[key]
     ) {
       continue;

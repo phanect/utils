@@ -1,11 +1,11 @@
-import { Buffer } from "node:buffer";
+import type { Buffer } from "node:buffer";
 import { exec as execCallback } from "node:child_process";
 
 type CmdParams = Parameters<typeof execCallback>;
 type CommandString = CmdParams[0];
 type CmdOptions = CmdParams[1] & {
-  output?: boolean,
-  printCommand?: boolean,
+  output?: boolean;
+  printCommand?: boolean;
 };
 
 type CmdCallback = Exclude<CmdParams[2], undefined>;
@@ -16,7 +16,7 @@ type CmdStdErr = CmdCallbackParams[2];
 type CmdReturn = {
   stdout: CmdStdOut;
   stderr: CmdStdErr;
-  child: ReturnType<typeof execCallback>
+  child: ReturnType<typeof execCallback>;
 };
 
 type Queued = {
@@ -34,7 +34,10 @@ type Queued = {
  * @param options.printCommand - Print command string before running the command. `true` by default.
  * @returns Array of command output and child process object.
  */
-export const cmd = async (commands: CommandString | CommandString[], options?: CmdOptions): Promise<CmdReturn | CmdReturn[]> => {
+export const cmd = async (
+  commands: CommandString | CommandString[],
+  options?: CmdOptions,
+): Promise<CmdReturn | CmdReturn[]> => {
   // Default options
   const { output = true, printCommand = true } = options ?? {};
   /** Current command ID to be allowed to pring log */
@@ -45,17 +48,19 @@ export const cmd = async (commands: CommandString | CommandString[], options?: C
 
   const log = (queued: Queued): void => {
     const logger = queued.target === "stdout" ? console.info : console.error;
-    const prefix = (queued.isCommand ? ((0 < queued.processId ? "\n" : "") + ">>> ") : "")
-      + `[${ queued.processId }]`;
+    const prefix =
+      (queued.isCommand ? (0 < queued.processId ? "\n" : "") + ">>> " : "") +
+      `[${queued.processId}]`;
     const trailingLineBreaks = queued.isCommand ? "\n\n" : "\n";
 
     if (typeof queued.text === "string" || !!queued.text?.toString) {
-      logger(queued.text
-        .toString()
-        .trim() // strip leading & trailing linebreaks
-        .split("\n")
-        .map(line => `${prefix} ${line}`)
-        .join("\n") + trailingLineBreaks
+      logger(
+        queued.text
+          .toString()
+          .trim() // strip leading & trailing linebreaks
+          .split("\n")
+          .map((line) => `${prefix} ${line}`)
+          .join("\n") + trailingLineBreaks,
       );
     } else {
       logger(prefix, queued.text, trailingLineBreaks);
@@ -68,9 +73,10 @@ export const cmd = async (commands: CommandString | CommandString[], options?: C
 
   const addToPrintQueue = (
     text: string | Buffer | unknown,
-    { target, processId, isCommand = false }: AddToPrintQueueOptions
+    { target, processId, isCommand = false }: AddToPrintQueueOptions,
   ): void => {
-    const _text = (typeof text === "string" || !text?.toString) ? text : text.toString();
+    const _text =
+      typeof text === "string" || !text?.toString ? text : text.toString();
 
     if (processId <= currentProcessId) {
       log({
@@ -101,52 +107,57 @@ export const cmd = async (commands: CommandString | CommandString[], options?: C
     dumpFromQueue(currentProcessId);
   };
 
-  const promises: Promise<CmdReturn>[] = (Array.isArray(commands) ? commands : [ commands ])
-    .map((command, i) => new Promise<CmdReturn>((resolve, reject) => {
-      try {
-        if (printCommand !== false) {
-          addToPrintQueue(command, {
-            target: "stdout",
-            processId: i,
-            isCommand: true,
-          });
-        }
-
-        // TODO use "error" event to print error, and "close" to resolve instead of callback.
-        // https://nodejs.org/docs/latest-v20.x/api/child_process.html#event-error
-        // https://nodejs.org/docs/latest-v20.x/api/child_process.html#event-close
-
-        // eslint-disable-next-line promise/prefer-await-to-callbacks
-        const child = execCallback(command, options, (err, stdout, stderr) => {
-          if (err) {
-            reject(err);
-            return;
-          }
-
-          resolve({ stdout, stderr, child });
-        });
-
-        if (output !== false) {
-          child.stdout?.on(
-            "data",
-            (data: string | Buffer | unknown): void => addToPrintQueue(data, {
+  const promises: Promise<CmdReturn>[] = (
+    Array.isArray(commands) ? commands : [commands]
+  ).map(
+    (command, i) =>
+      new Promise<CmdReturn>((resolve, reject) => {
+        try {
+          if (printCommand !== false) {
+            addToPrintQueue(command, {
               target: "stdout",
               processId: i,
-            }),
+              isCommand: true,
+            });
+          }
+
+          // TODO use "error" event to print error, and "close" to resolve instead of callback.
+          // https://nodejs.org/docs/latest-v20.x/api/child_process.html#event-error
+          // https://nodejs.org/docs/latest-v20.x/api/child_process.html#event-close
+
+          const child = execCallback(
+            command,
+            options,
+            (err, stdout, stderr) => {
+              if (err) {
+                reject(err);
+                return;
+              }
+
+              resolve({ stdout, stderr, child });
+            },
           );
 
-          child.stderr?.on(
-            "data",
-            (data: string | Buffer | unknown): void => addToPrintQueue(data, {
-              target: "stderr",
-              processId: i,
-            })
-          );
+          if (output !== false) {
+            child.stdout?.on("data", (data: string | Buffer | unknown): void =>
+              addToPrintQueue(data, {
+                target: "stdout",
+                processId: i,
+              }),
+            );
+
+            child.stderr?.on("data", (data: string | Buffer | unknown): void =>
+              addToPrintQueue(data, {
+                target: "stderr",
+                processId: i,
+              }),
+            );
+          }
+        } catch (err) {
+          reject(err);
         }
-      } catch(err) {
-        reject(err);
-      }
-    }));
+      }),
+  );
 
   for (const promise of promises) {
     returnValues.push(await promise);

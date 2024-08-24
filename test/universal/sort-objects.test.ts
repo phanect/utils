@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 import { sortObjects } from "../../src/universal.ts";
 
-test("sortObjects", async () => {
+test("sortObjects", () => {
   const result = sortObjects([
     { a: 5 },
     { a: 1 },

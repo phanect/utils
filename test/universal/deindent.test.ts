@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 import { deindent } from "../../src/universal.ts";
 
-test("deindent", async () => {
+test("deindent", () => {
   const before = `
   {
     "test": "JS object"

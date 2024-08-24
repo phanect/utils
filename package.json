@@ -1,6 +1,6 @@
 {
   "name": "@phanect/utils",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "@phanect's personal utility library for JavaScript & TypeScript",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "MIT",

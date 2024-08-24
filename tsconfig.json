@@ -3,12 +3,6 @@
     "@phanect/configs/tsconfig/frontend",
     "@phanect/configs/tsconfig/addons/npm"
   ],
-  "include": [
-    "**/*.ts",
-    "**/*.js"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.js"],
+  "exclude": ["dist", "node_modules"]
 }

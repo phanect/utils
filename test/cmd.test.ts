@@ -14,8 +14,14 @@ describe("Mock tests", () => {
   test("cmd", async () => {
     let output: string = "";
 
-    vi.spyOn(console, "info").mockImplementation((printed) => output += printed);
-    vi.spyOn(console, "error").mockImplementation((printed) => output += printed);
+    vi.spyOn(console, "info").mockImplementation((printed) => {
+      output = output + printed;
+      return output;
+    });
+    vi.spyOn(console, "error").mockImplementation((printed) => {
+      output = output + printed;
+      return output;
+    });
 
     await cmd([
       `bash ${ join(__dirname, "fixtures/cmd/command1.sh") }`,

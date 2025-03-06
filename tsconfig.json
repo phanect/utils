@@ -1,8 +1,17 @@
 {
   "extends": [
-    "@phanect/configs/tsconfig/frontend",
-    "@phanect/configs/tsconfig/addons/npm"
+    "@phanect/configs/ts",
+    "@phanect/configs/ts/addons/npm"
   ],
-  "include": ["**/*.ts", "**/*.js"],
-  "exclude": ["dist", "node_modules"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.jsx"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

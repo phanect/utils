@@ -36,6 +36,7 @@ node_modules/
 # Lockfiles are not required for npm packages
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 
 # tarballs packed by `npm pack`
 *.tgz

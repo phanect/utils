@@ -4,7 +4,7 @@ node = { version = "24" }
 
 [tasks]
   [tasks.build]
-  run = "unbuild"
+  run = "tsdown"
   env = { NODE_ENV = "production" }
 
   [tasks.lint]

@@ -3,8 +3,8 @@
  * @param objects - Aarray of objects.
  * @returns - Sorted array of the objects.
  */
-/* biome-ignore lint/suspicious/noExplicitAny:
- *   `{ [key: string]: unknown }` is not acceptable and we must use `any` here.
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any --
+ * `{ [key: string]: unknown }` is not acceptable and we must use `any` here.
  * See: https://github.com/microsoft/TypeScript/wiki/Breaking-Changes/83af27fca396d172b4d895d480b10c3bacf89112#-k-string-unknown--is-no-longer-a-wildcard-assignment-target
  */
 export const sortObjects = <T extends { [key: string]: any }>(

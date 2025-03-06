@@ -1,11 +1,11 @@
 export function getLastElementOf<T>(
   arr: T[],
-  options?: { withIndex?: false },
+  options?: { withIndex?: false; },
 ): T | undefined;
 export function getLastElementOf<T>(
   arr: T[],
-  options: { withIndex: true },
-): { el: T; index: number } | undefined;
+  options: { withIndex: true; },
+): { el: T; index: number; } | undefined;
 
 /**
  * @param arr - The array to get the last element.
@@ -19,7 +19,7 @@ export function getLastElementOf<T>(
   options: {
     withIndex?: boolean;
   } = {},
-): T | { el: T; index: number } | undefined {
+): T | { el: T; index: number; } | undefined {
   if (arr.length <= 0) {
     return undefined;
   }

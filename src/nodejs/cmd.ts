@@ -1,5 +1,5 @@
-import type { Buffer } from "node:buffer";
 import { exec as execCallback } from "node:child_process";
+import type { Buffer } from "node:buffer";
 
 type CmdParams = Parameters<typeof execCallback>;
 type CommandString = CmdParams[0];
@@ -48,9 +48,8 @@ export const cmd = async (
 
   const log = (queued: Queued): void => {
     const logger = queued.target === "stdout" ? console.info : console.error;
-    const prefix =
-      (queued.isCommand ? (0 < queued.processId ? "\n" : "") + ">>> " : "") +
-      `[${queued.processId}]`;
+    const prefix = (queued.isCommand ? (0 < queued.processId ? "\n" : "") + ">>> " : "")
+      + `[${ queued.processId }]`;
     const trailingLineBreaks = queued.isCommand ? "\n\n" : "\n";
 
     if (typeof queued.text === "string" || !!queued.text?.toString) {
@@ -59,7 +58,7 @@ export const cmd = async (
           .toString()
           .trim() // strip leading & trailing linebreaks
           .split("\n")
-          .map((line) => `${prefix} ${line}`)
+          .map((line) => `${ prefix } ${ line }`)
           .join("\n") + trailingLineBreaks,
       );
     } else {
@@ -75,8 +74,8 @@ export const cmd = async (
     text: string | Buffer | unknown,
     { target, processId, isCommand = false }: AddToPrintQueueOptions,
   ): void => {
-    const _text =
-      typeof text === "string" || !text?.toString ? text : text.toString();
+    const _text
+      = typeof text === "string" || !text?.toString ? text : text.toString();
 
     if (processId <= currentProcessId) {
       log({
@@ -108,7 +107,7 @@ export const cmd = async (
   };
 
   const promises: Promise<CmdReturn>[] = (
-    Array.isArray(commands) ? commands : [commands]
+    Array.isArray(commands) ? commands : [ commands ]
   ).map(
     (command, i) =>
       new Promise<CmdReturn>((resolve, reject) => {

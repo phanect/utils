@@ -9,6 +9,6 @@ test("loadJSON", async () => {
 
   expect(obj).toStrictEqual({
     foo: "bar",
-    boo: ["a", "b", "c"],
+    boo: [ "a", "b", "c" ],
   });
 });

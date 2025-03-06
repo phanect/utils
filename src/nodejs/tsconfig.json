@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "@phanect/configs/ts/nodejs",
+    "@phanect/configs/ts/addons/npm"
+  ],
+  "include": [
+    "./**/*.ts",
+    "./**/*.js"
+  ]
+}

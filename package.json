@@ -22,13 +22,6 @@
       "require": "./dist/nodejs.cjs"
     }
   },
-  "scripts": {
-    "build": "unbuild",
-    "lint": "tsc --noEmit && eslint",
-    "fix": "eslint --fix",
-    "release": "npm publish --access public --non-interactive",
-    "test": "vitest run"
-  },
   "devDependencies": {
     "@phanect/configs": "latest",
     "@phanect/lint": "latest",

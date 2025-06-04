@@ -11,15 +11,15 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/universal.mjs",
-        "types": "./dist/universal.d.ts"
+        "types": "./dist/universal.d.ts",
+        "default": "./dist/universal.mjs"
       },
       "require": "./dist/universal.cjs"
     },
     "./nodejs": {
+      "types": "./dist/nodejs.d.ts",
       "import": "./dist/nodejs.mjs",
-      "require": "./dist/nodejs.cjs",
-      "types": "./dist/nodejs.d.ts"
+      "require": "./dist/nodejs.cjs"
     }
   },
   "scripts": {

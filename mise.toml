@@ -1,6 +1,5 @@
 [tools]
 node = { version = "24" }
-"npm:nushell" = "latest"
 
 [tasks]
   [tasks.build]

@@ -1,6 +1,6 @@
 /**
  * Sort array of the objects by the keys in the alphabetical order.
- * @param objects - Aarray of objects.
+ * @param objects - Array of objects.
  * @returns - Sorted array of the objects.
  */
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any --

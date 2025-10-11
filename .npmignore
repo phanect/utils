@@ -5,7 +5,7 @@
 *.tgz
 .editorconfig
 .eslintrc.cjs
-.gitarrtibutes
+.gitattributes
 .gitignore
 build.config.*
 tsconfig.json

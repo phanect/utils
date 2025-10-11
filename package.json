@@ -7,7 +7,7 @@
     "url": "git+https://github.com/phanect/utils.git"
   },
   "author": "Jumpei Ogawa (https://phanective.org)",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/universal.cjs",
   "module": "./dist/universal.js",

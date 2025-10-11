@@ -3,13 +3,28 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     assignees:
       - "phanect"
+    groups:
+      compatible:
+        applies-to: "version-updates"
+        update-types:
+          - "minor"
+          - "patch"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     assignees:
       - "phanect"
+    groups:
+      security:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
+      normal:
+        applies-to: "version-updates"
+        patterns:
+          - "*"

@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "EditorConfig.EditorConfig",
+    "hverlin.mise-vscode",
+    "tamasfe.even-better-toml"
+  ]
+}

@@ -12,7 +12,26 @@ on:
       - published
 
 jobs:
-  build:
+  build-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm run lint
+      - run: npm run build
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dist
+          path: dist
+          if-no-files-found: error
+          retention-days: 1
+          include-hidden-files: true
+
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,13 +46,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: npm install
-      - run: npm run build
       - run: npm test
-      - run: npm run lint
 
   publish:
-    needs: build
+    needs:
+      - build-lint
+      - test
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
@@ -42,8 +60,10 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm install
-      - run: npm run build
+      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        with:
+          name: dist
+          path: dist
 
       - name: Set npm auth token
         run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > ~/.npmrc

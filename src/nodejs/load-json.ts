@@ -6,7 +6,7 @@ export const loadJSON = async <JsonObject extends Record<string, unknown>>(
   options?: ObjectEncodingOptions,
 ): Promise<JsonObject> => {
   if (!(await stat(jsonPath)).isFile()) {
-    throw new Error(`"${ jsonPath }" does not exist of not a regular file.`);
+    throw new Error(`"${ jsonPath }" does not exist or not a regular file.`);
   }
 
   const jsonString = await readFile(jsonPath, {

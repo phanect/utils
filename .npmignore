@@ -1,11 +1,16 @@
+# TODO Remove this file if the project is not an npm package
 /.github/
+/.vscode/
 /dist/*.d.mts
 /dist/*.d.cts
-/test/
+src/
+test/
+tests/
+*.config.js
+*.config.mjs
+*.config.ts
 *.tgz
 .editorconfig
-.eslintrc.cjs
 .gitattributes
 .gitignore
-build.config.*
 tsconfig.json

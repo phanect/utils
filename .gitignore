@@ -1,17 +1,6 @@
 #
-# Project-Specific
+# Generic
 #
-
-# Built files
-dist/
-
-#
-# System
-#
-
-# Logs
-logs/
-*.log
 
 # PIDs
 *.pid
@@ -22,25 +11,84 @@ pids
 # File manager configs
 .directory
 Thumbs.db
-*.DS_Store
+.DS_Store
+
+# Build directory
+build/
+dist/
+
+# tmp files
+temp/
+tmp/
+
+# Logs
+logs/
+*.log
+
+# Archives
+*.zip
+*.tar.gz
+*.tar.xz
+*.tar
+*.tgz
+
+# dotenv
+.env
+.env.*
+!.env.example
+
+# SQLite DB
+*.db
+*.db-journal
+
+# mise
+mise.local.toml
 
 #
 # JavaScript
 #
 
-# NPM / Yarn
+# NPM / package managers
 node_modules/
 .npm/
 .yarn-integrity
 
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
 # Lockfiles are not required for npm packages
+pnpm-lock.yaml
 package-lock.json
 yarn.lock
-pnpm-lock.yaml
+bun.lockb
+npm-shrinkwrap.json
 
-# tarballs packed by `npm pack`
-*.tgz
-
-# Others
+# Node.js
 .node_repl_history
+
+# TypeScript
+*.tsbuildinfo
+
+# Frameworks
+.next/
+.nuxt/
+out/
+.svelte-kit/
+.astro/
+
+# Platforms
+.wrangler/
+.dev.vars
+worker-configuration.d.ts
+
+.vercel/
+.netlify/
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# ESLint
 .eslintcache

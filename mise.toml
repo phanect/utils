@@ -30,9 +30,6 @@ node = { version = "24" }
     "mise install"
   ]
 
-  [tasks.release]
-  run = "npm publish --access public --non-interactive"
-
 [hooks]
 postinstall = [
   "corepack enable",

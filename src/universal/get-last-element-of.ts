@@ -29,14 +29,10 @@ export function getLastElementOf<T>(
   if (withIndex === true) {
     const index = arr.length - 1;
 
-    if (arr[index]) {
-      return {
-        el: arr[index],
-        index,
-      };
-    } else {
-      return undefined;
-    }
+    return {
+      el: arr[index],
+      index,
+    };
   } else {
     return arr[arr.length - 1];
   }

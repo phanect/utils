@@ -19,7 +19,7 @@ export function getLastElementOf<T>(
   options: {
     withIndex?: boolean;
   } = {},
-): T | { el: T; index: number; } | undefined {
+): T | { el: T | undefined; index: number; } | undefined {
   if (arr.length <= 0) {
     return undefined;
   }

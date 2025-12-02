@@ -14,3 +14,4 @@ tests/
 .gitattributes
 .gitignore
 tsconfig.json
+pnpm-workspace.yaml

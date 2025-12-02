@@ -10,18 +10,18 @@
   "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/universal.cjs",
-  "module": "./dist/universal.js",
-  "types": "./dist/universal.d.ts",
+  "module": "./dist/universal.mjs",
+  "types": "./dist/universal.d.mts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/universal.d.ts",
+        "types": "./dist/universal.d.mts",
         "default": "./dist/universal.mjs"
       },
       "require": "./dist/universal.cjs"
     },
     "./nodejs": {
-      "types": "./dist/nodejs.d.ts",
+      "types": "./dist/nodejs.d.mts",
       "import": "./dist/nodejs.mjs",
       "require": "./dist/nodejs.cjs"
     }

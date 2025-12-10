@@ -1,8 +1,6 @@
 # TODO Remove this file if the project is not an npm package
 /.github/
 /.vscode/
-/dist/*.d.mts
-/dist/*.d.cts
 src/
 test/
 tests/

@@ -1,7 +1,8 @@
 /**
- * Generates random integer number.
+ * Generates pseudo-random non-negative integer number.
+ * Don't use this function for security purpose. (e.g., generating password)
  * @param max - max number of the generated random number
- * @returns random number (integer)
+ * @returns pseudo-random non-negative integer number
  */
 export const pseudoRandomInt = (max: number): number => {
   if (!Number.isFinite(max) || max < 0) {

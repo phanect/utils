@@ -3,6 +3,7 @@ export { trimLines } from "./universal/trim-lines.ts";
 export { getLastElementOf } from "./universal/get-last-element-of.ts";
 export { npmPackageExists } from "./universal/npm-package-exists.ts";
 export { random } from "./universal/random.ts";
+export { range } from "./universal/range.ts";
 export { sleep } from "./universal/sleep.ts";
 export { sortObjects } from "./universal/sort-objects.ts";
 

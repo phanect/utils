@@ -7,6 +7,9 @@ tests/
 *.config.js
 *.config.mjs
 *.config.ts
+*.test.mjs
+*.test.js
+*.test.ts
 *.tgz
 .editorconfig
 .gitattributes

@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { sortObjects } from "../../src/universal.ts";
+import { sortObjects } from "../universal.ts";
 
 test("sortObjects", () => {
   const result = sortObjects([

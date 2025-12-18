@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { deindent } from "../universal.ts";
+import { trimLines } from "../universal.ts";
 
 test("deindent", () => {
   const before = `
@@ -11,7 +11,7 @@ test("deindent", () => {
 "test": "JS object"
 }`;
 
-  const actualAfter = deindent(before);
+  const actualAfter = trimLines(before);
 
   expect(actualAfter).toStrictEqual(expectedAfter);
 }, 10000);

@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { deduplicate } from "../../src/universal.ts";
+import { deduplicate } from "../universal.ts";
 
 test("deduplicate", () => {
   const deduplicated = deduplicate([

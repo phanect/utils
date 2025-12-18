@@ -1,10 +1,10 @@
 import { join } from "node:path";
 import { expect, test } from "vitest";
-import { loadJSON } from "../../src/nodejs.ts";
+import { loadJSON } from "../nodejs.ts";
 
 test("loadJSON", async () => {
   const obj = await loadJSON(
-    join(import.meta.dirname, "../fixtures/load-json/fixture.json"),
+    join(import.meta.dirname, "../../test/fixtures/load-json/fixture.json"),
   );
 
   expect(obj).toStrictEqual({

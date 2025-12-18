@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { deindent } from "../../src/universal.ts";
+import { deindent } from "../universal.ts";
 
 test("deindent", () => {
   const before = `

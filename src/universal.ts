@@ -6,10 +6,3 @@ export { pseudoRandomInt } from "./universal/pseudo-random-int.ts";
 export { pseudoRandomString } from "./universal/pseudo-random-string.ts";
 export { sleep } from "./universal/sleep.ts";
 export { sortObjects } from "./universal/sort-objects.ts";
-
-//
-// Backward compatibility
-//
-
-/** @deprecated `deindent()` is renamed to `trimLines()` */
-export { trimLines as deindent } from "./universal/trim-lines.ts";

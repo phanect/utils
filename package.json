@@ -1,6 +1,6 @@
 {
   "name": "@phanect/utils",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "@phanect's personal utility library for JavaScript & TypeScript",
   "repository": {
     "type": "git",

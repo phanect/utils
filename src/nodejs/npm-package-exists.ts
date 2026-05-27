@@ -1,4 +1,4 @@
-import { trimLines } from "./trim-lines.ts";
+import { trimLines } from "../universal/trim-lines.ts";
 
 export const npmPackageExists = async (pkgName: string): Promise<boolean> => {
   const res = await fetch(`https://registry.npmjs.com/${ pkgName }`);

@@ -4,7 +4,7 @@
  * @param max - max number of the generated random number
  * @returns pseudo-random non-negative integer number
  */
-export const pseudoRandomInt = (max: number): number => {
+export const pseudoRandomPositiveInt = (max: number): number => {
   if (!Number.isFinite(max) || max < 0) {
     throw new RangeError("max must be a finite, non-negative number");
   }

@@ -1,4 +1,4 @@
-import { pseudoRandomInt } from "./pseudo-random-int.ts";
+import { pseudoRandomPositiveInt } from "./pseudo-random-positive-int.ts";
 import { chars } from "./pseudo-random-string-chars.ts";
 
 /**
@@ -13,7 +13,7 @@ export const pseudoRandomString = (length: number): string => {
   }
 
   return Array.from({ length }, () => {
-    const index = pseudoRandomInt(chars.length - 1);
+    const index = pseudoRandomPositiveInt(chars.length - 1);
     return chars[index];
   }).join("");
 };

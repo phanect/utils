@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { pseudoRandomInt } from "./pseudo-random-int.ts";
+import { pseudoRandomPositiveInt } from "./pseudo-random-positive-int.ts";
 import { pseudoRandomString } from "./pseudo-random-string.ts";
 
 describe("pseudoRandomString()", () => {
@@ -34,7 +34,7 @@ describe("pseudoRandomString()", () => {
   });
 
   test("works with different length values", () => {
-    for (const length of Array.from({ length: 5 }, () => pseudoRandomInt(500) + 1)) {
+    for (const length of Array.from({ length: 5 }, () => pseudoRandomPositiveInt(500) + 1)) {
       const generatedString = pseudoRandomString(length);
       expect(generatedString).toHaveLength(length);
       expect(typeof generatedString).toBe("string");

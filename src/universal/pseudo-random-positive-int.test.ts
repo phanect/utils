@@ -1,10 +1,10 @@
 import { ok } from "node:assert";
 import { describe, expect, test } from "vitest";
-import { pseudoRandomInt } from "./pseudo-random-int.ts";
+import { pseudoRandomPositiveInt } from "./pseudo-random-positive-int.ts";
 
 describe("pseudoRandomInt()", () => {
   test("returns a number within valid range", () => {
-    const generatedNumber = pseudoRandomInt(100);
+    const generatedNumber = pseudoRandomPositiveInt(100);
 
     expect(generatedNumber).toBeLessThanOrEqual(100);
     expect(generatedNumber).toBeGreaterThanOrEqual(0);
@@ -12,17 +12,17 @@ describe("pseudoRandomInt()", () => {
   });
 
   test("returns an integer (no decimals)", () => {
-    const generatedNumber = pseudoRandomInt(100);
+    const generatedNumber = pseudoRandomPositiveInt(100);
     ok(Number.isInteger(generatedNumber));
   });
 
   test("handles max value of 0 (returns 0)", () => {
-    const generatedNumber = pseudoRandomInt(0);
+    const generatedNumber = pseudoRandomPositiveInt(0);
     expect(generatedNumber).toBe(0);
   });
 
   test("returns 0 or 1 for max value of 1", () => {
-    const generatedNumber = pseudoRandomInt(1);
+    const generatedNumber = pseudoRandomPositiveInt(1);
     expect([ 0, 1 ]).toContain(generatedNumber);
   });
 
@@ -32,7 +32,7 @@ describe("pseudoRandomInt()", () => {
 
     // Generate multiple random numbers to test distribution
     for (let i = 0; i < 100; i++) {
-      const generatedNumber = pseudoRandomInt(max);
+      const generatedNumber = pseudoRandomPositiveInt(max);
       results.add(generatedNumber);
       expect(generatedNumber).toBeGreaterThanOrEqual(0);
       expect(generatedNumber).toBeLessThanOrEqual(max);
@@ -47,7 +47,7 @@ describe("pseudoRandomInt()", () => {
     const max = 1000000;
 
     for (let i = 0; i < 100; i++) {
-      const generatedNumber = pseudoRandomInt(max);
+      const generatedNumber = pseudoRandomPositiveInt(max);
       expect(generatedNumber).toBeGreaterThanOrEqual(0);
       expect(generatedNumber).toBeLessThanOrEqual(max);
       expect(Number.isInteger(generatedNumber)).toBe(true);

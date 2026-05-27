@@ -1,6 +1,6 @@
 import { ok } from "node:assert";
 import { describe, expect, test } from "vitest";
-import { pseudoRandomPositiveInt } from "./pseudo-random-positive-int.ts";
+import { pseudoRandomPositiveInt } from "../src/universal/pseudo-random-positive-int.ts";
 
 describe("pseudoRandomInt()", () => {
   test("returns a number within valid range", () => {

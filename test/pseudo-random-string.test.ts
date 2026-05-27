@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { pseudoRandomPositiveInt } from "./pseudo-random-positive-int.ts";
-import { pseudoRandomString } from "./pseudo-random-string.ts";
+import { pseudoRandomPositiveInt } from "../src/universal/pseudo-random-positive-int.ts";
+import { pseudoRandomString } from "../src/universal/pseudo-random-string.ts";
 
 describe("pseudoRandomString()", () => {
   test("returns a string with the correct length", () => {

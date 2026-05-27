@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@phanect/configs/ts",
+    "@phanect/configs/ts/nodejs",
     "@phanect/configs/ts/addons/npm"
   ],
   "include": [
@@ -12,6 +12,8 @@
   ],
   "exclude": [
     "dist",
-    "node_modules"
+    "node_modules",
+    // Use different tsconfig.json for universal code
+    "./src/universal/**"
   ]
 }

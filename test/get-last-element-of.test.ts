@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { getLastElementOf } from "../universal.ts";
+import { getLastElementOf } from "../src/universal.ts";
 
 test("getLastElementOf (without index)", () => {
   const lastElement = getLastElementOf([ "a", "b", "c" ]);

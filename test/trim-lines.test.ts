@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { trimLines } from "../universal.ts";
+import { trimLines } from "../src/universal.ts";
 
 test("deindent", () => {
   const before = `

@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@phanect/configs/ts/nodejs",
+    "@phanect/configs/ts",
     "@phanect/configs/ts/addons/npm"
   ],
   "include": [

@@ -27,7 +27,7 @@
     }
   },
   "devDependencies": {
-    "@phanect/configs": "latest",
+    "@phanect/configs": "2026.5.19",
     "@phanect/lint": "latest",
     "@types/node": "^24.7.1",
     "eslint": "^9.21.0",

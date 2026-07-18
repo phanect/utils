@@ -27,12 +27,12 @@
     }
   },
   "devDependencies": {
-    "@phanect/configs": "2026.5.19",
+    "@phanect/configs": "2026.7.9",
     "@phanect/lint": "latest",
     "@types/node": "^24.7.1",
     "eslint": "^10.4.0",
     "jiti": "^2.4.2",
-    "tsdown": "0.22.0",
+    "tsdown": "0.22.7",
     "typescript": "^6.0.3",
     "vitest": "^4.0.4"
   },
